@@ -30,10 +30,7 @@ jobs:
             git commit -m 'Auto render'; \
             git push origin $(sed -e 's#.*remotes/origin/\(\)#\1#' <<< $GITHUB_REF);
           fi
-  
-    create-pull-request:
-    runs-on: ubuntu-latest
-    steps:
+          
       - name: Create Pull Request
         uses: actions/github-script@v6
         with:
