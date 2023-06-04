@@ -13,14 +13,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Download simplifier source code
-        run: wget https://simplifier.net/ukdigitalmedicine/download
-
-      - name: Unpack simplifier source code
-        run: unzip -B download
-  
-      - name: Update repo
+      - name: Download and commit simplifier source code
         run: |
+          wget https://simplifier.net/ukdigitalmedicine/download; \
+          unzip -B download ;\
           git config --global user.email 'ci@render.diagrams'; \
           git config --global user.name 'Diagram Pipeline'; \
           export BRNAME=$(date | tr -d "[:space:]") | tr -d ":" \
