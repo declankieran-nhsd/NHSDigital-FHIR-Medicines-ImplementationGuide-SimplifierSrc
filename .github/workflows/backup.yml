@@ -16,7 +16,6 @@ jobs:
       - name: Download and commit simplifier source code
         run: |
           wget https://simplifier.net/ukdigitalmedicine/download; \
-          unzip -B download ;\
           export BRNAME=$(date | tr -d "[:space:]") | tr -d ":" \
           git config --global user.email 'ci@render.diagrams'; \
           git config --global user.name 'Diagram Pipeline'; \
