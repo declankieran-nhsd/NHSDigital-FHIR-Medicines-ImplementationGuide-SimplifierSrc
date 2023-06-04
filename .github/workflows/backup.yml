@@ -20,7 +20,7 @@ jobs:
           export BRNAME=$(date | tr -d "[:space:]") | tr -d ":" \
           git config --global user.email 'ci@render.diagrams'; \
           git config --global user.name 'Diagram Pipeline'; \
-          git checkout -b $BRNAME
+          git checkout $BRNAME
           git add .; \
           if [[ `git status --porcelain` ]]; then           # Check if anything to commit
             git commit -m 'Auto render'; \
