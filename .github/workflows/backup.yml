@@ -18,10 +18,10 @@ jobs:
       - name: Download and commit simplifier source code
         run: |
           wget https://simplifier.net/ukdigitalmedicine/download; \
-          export BRNAME=$(date | tr -d "[:space:]") | tr -d ":"; \
+          export BRNAME=$(date | tr -d "[:space:]" | tr -d ":"); \
           git config user.name github-actions[bot]
           git config user.email github-actions[bot]@users.noreply.github.com
-          git checkout $BRNAME
+          git checkout -b $BRNAME
           git add .; \
           if [[ `git status --porcelain` ]]; then           # Check if anything to commit
             git commit -m $(date); \
