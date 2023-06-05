@@ -36,7 +36,7 @@ jobs:
           script: |
             const { repo, owner } = context.repo;
             const result = await github.rest.pulls.create({
-              title: $(date),
+              title: '$(date)',
               owner,
               repo,
               head: '${{ github.ref_name }}',
