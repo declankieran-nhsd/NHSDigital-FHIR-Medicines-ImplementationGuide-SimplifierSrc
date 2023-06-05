@@ -19,6 +19,11 @@ jobs:
       - name: Download and commit simplifier source code
         run: wget https://simplifier.net/ukdigitalmedicine/download
           
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+
       - name: Commit report
         run: |
           export BRNAME=$(date | tr -d "[:space:]" | tr -d ":");
@@ -28,7 +33,12 @@ jobs:
           git add -A
           git commit -m "$(date)"
           git push origin $BRNAME
-          
+
+      - name: Dump GitHub context 2
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+
       - name: Create Pull Request
         uses: actions/github-script@v6
         with:
