@@ -32,6 +32,7 @@ jobs:
         run: |
           wget https://simplifier.net/ukdigitalmedicine/download -O backup/download.zip
           cd backup
+          rm -r *
           unzip -u -o download.zip
           rm download.zip
           cd ..
