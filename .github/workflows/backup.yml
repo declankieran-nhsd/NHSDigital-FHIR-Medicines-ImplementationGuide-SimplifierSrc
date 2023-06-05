@@ -2,7 +2,6 @@ name: Back up simplifier source code
 
 on:
   workflow_dispatch:
-  push:
   schedule:
     - cron: '0 0 * * *'
 
@@ -32,10 +31,9 @@ jobs:
         with:
           token: ${{ secrets.TOKEN }}
           script: |
-            export TODAY=$(date)
             const { repo, owner } = context.repo;
             const result = await github.rest.pulls.create({
-              title: $TODAY,
+              title: $(date),
               owner,
               repo,
               head: '${{ github.ref_name }}',
