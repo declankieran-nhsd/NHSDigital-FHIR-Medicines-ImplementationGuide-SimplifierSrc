@@ -25,7 +25,7 @@ jobs:
           ls ; \
           git add .; \
           if [[ `git status --porcelain` ]]; then           # Check if anything to commit
-            git commit -m "$(date); \
+            git commit -m "$(date)"; \
             git push origin $(sed -e 's#.*remotes/origin/\(\)#\1#' <<< $GITHUB_REF);
           fi
           
