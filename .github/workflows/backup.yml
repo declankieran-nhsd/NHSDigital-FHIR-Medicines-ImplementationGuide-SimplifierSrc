@@ -1,6 +1,9 @@
 name: Back up simplifier source code
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
   schedule:
     - cron: '0 0 * * *'
