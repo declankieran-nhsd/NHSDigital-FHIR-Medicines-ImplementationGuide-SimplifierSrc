@@ -15,11 +15,11 @@ jobs:
         with:
           token: ${{ secrets.TOKEN }}
       - name: Download and commit simplifier source code
-        run: |
-          wget https://simplifier.net/ukdigitalmedicine/download; \
-          export BRNAME=$(date | tr -d "[:space:]" | tr -d ":");
+        run: wget https://simplifier.net/ukdigitalmedicine/download
+          
       - name: Commit report
         run: |
+          export BRNAME=$(date | tr -d "[:space:]" | tr -d ":");
           git config --global user.name 'Declan Kieran'
           git config --global user.email 'declan.kieran1@nhs.net'
           git checkout -b $BRNAME
