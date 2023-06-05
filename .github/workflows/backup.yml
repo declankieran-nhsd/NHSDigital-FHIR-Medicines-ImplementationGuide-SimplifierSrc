@@ -19,11 +19,11 @@ jobs:
 
       - name: Set today
         id: today
-        run: echo 'TODAY=$(date)' >> $GITHUB_OUTPUT
+        run: echo "TODAY=$(date)"" >> $GITHUB_OUTPUT
 
       - name: Set branch name
         id: branch-name
-        run: echo 'BRANCH=$(echo ${{ steps.today.outputs.TODAY }} | tr -d "[:space:]" | tr -d ":")' >> $GITHUB_OUTPUT
+        run: echo "BRANCH=$(echo ${{ steps.today.outputs.TODAY }} | tr -d '[:space:]' | tr -d ':')" >> $GITHUB_OUTPUT
 
       - name: Download and commit simplifier source code
         run: wget https://simplifier.net/ukdigitalmedicine/download
