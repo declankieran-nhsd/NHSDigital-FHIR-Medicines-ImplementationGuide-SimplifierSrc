@@ -30,9 +30,9 @@ jobs:
 
       - name: Download and commit simplifier source code
         run: |
-          wget https://simplifier.net/ukdigitalmedicine/download -O backup/download.zip
           cd backup
           rm -r *
+          wget https://simplifier.net/ukdigitalmedicine/download -O download.zip
           unzip -u -o download.zip
           rm download.zip
           cd ..
