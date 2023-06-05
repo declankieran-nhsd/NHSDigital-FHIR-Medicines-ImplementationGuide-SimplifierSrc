@@ -25,7 +25,7 @@ jobs:
           git checkout -b $BRNAME
           git add -A
           git commit -m "$(date)"
-          git push
+          git push origin $BRNAME
           
       - name: Create Pull Request
         uses: actions/github-script@v6
