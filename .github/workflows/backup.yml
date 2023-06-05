@@ -30,7 +30,7 @@ jobs:
       - name: Create Pull Request
         uses: actions/github-script@v6
         with:
-          github_token: ${{ secrets.SIMPLIFIERSRCREPO }}
+          token: ${{ secrets.TOKEN }}
           script: |
             export TODAY=$(date)
             const { repo, owner } = context.repo;
