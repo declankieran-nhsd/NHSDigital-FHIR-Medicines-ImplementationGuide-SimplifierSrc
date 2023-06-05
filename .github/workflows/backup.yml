@@ -82,3 +82,9 @@ jobs:
               const pull_number = data[0].number;
               await github.rest.pulls.merge({ owner, repo, pull_number, merge_method: "squash"});
             }
+
+      - name: "Delete branch"
+        uses: actions/checkout@v3
+        with:
+          github-token: ${{ secrets.TOKEN }}
+          run: git push -d origin ${{ steps.branch-name.outputs.BRANCH }}
