@@ -19,7 +19,7 @@ jobs:
 
       - name: Set today
         id: today
-        run: echo "TODAY=$(date)"" >> $GITHUB_OUTPUT
+        run: echo "TODAY=$(date)" >> $GITHUB_OUTPUT
 
       - name: Set branch name
         id: branch-name
