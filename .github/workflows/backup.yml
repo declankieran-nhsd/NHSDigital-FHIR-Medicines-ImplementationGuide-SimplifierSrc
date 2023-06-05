@@ -17,16 +17,15 @@ jobs:
       - name: Download and commit simplifier source code
         run: |
           wget https://simplifier.net/ukdigitalmedicine/download; \
-          export BRNAME=$(date | tr -d "[:space:]" | tr -d ":"); \
+          export BRNAME=$(date | tr -d "[:space:]" | tr -d ":");
+      - name: Commit report
+        run: |
           git config --global user.name 'Declan Kieran'
           git config --global user.email 'declan.kieran1@nhs.net'
-          git checkout -b $BRNAME; \
-          ls ; \
-          git add -A .; \
-          if [[ `git status --porcelain` ]]; then           # Check if anything to commit
-            git commit -m "$(date)"; \
-            git push origin $(sed -e 's#.*remotes/origin/\(\)#\1#' <<< $GITHUB_REF);
-          fi
+          git checkout -b $BRNAME
+          git add -A
+          git commit -m "$(date)"
+          git push
           
       - name: Create Pull Request
         uses: actions/github-script@v6
