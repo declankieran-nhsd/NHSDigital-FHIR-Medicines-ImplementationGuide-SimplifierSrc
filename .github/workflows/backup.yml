@@ -25,12 +25,19 @@ jobs:
         id: branch-name
         run: echo "BRANCH=$(echo ${{ steps.today.outputs.TODAY }} | tr -d '[:space:]' | tr -d ':')" >> $GITHUB_OUTPUT
 
+      - name: Update README
+        run: |
+          head -n 2 README.md > README1.md
+          echo "Updated at: $(date)" >> README1.md
+          mv README1.md README.md
+
       - name: Download and commit simplifier source code
         run: |
           wget https://simplifier.net/ukdigitalmedicine/download -O backup/download.zip
           cd backup
           unzip -u -o download.zip
           rm download.zip
+          cd ..
 
       - name: Commit report
         run: |
