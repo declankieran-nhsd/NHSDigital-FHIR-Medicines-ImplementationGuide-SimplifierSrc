@@ -32,9 +32,9 @@ jobs:
       - name: Create Pull Request
         uses: actions/github-script@v6
         with:
-          token: ${{ secrets.TOKEN }}
-          branch: $BRNAME
+          github_token: ${{ secrets.TOKEN }}
           script: |
+            git checkout -b $BRNAME
             const { repo, owner } = context.repo;
             const result = await github.rest.pulls.create({
               title: 'Backup Run',
