@@ -33,6 +33,7 @@ jobs:
         uses: actions/github-script@v6
         with:
           token: ${{ secrets.TOKEN }}
+          branch: $BRNAME
           script: |
             const { repo, owner } = context.repo;
             const result = await github.rest.pulls.create({
