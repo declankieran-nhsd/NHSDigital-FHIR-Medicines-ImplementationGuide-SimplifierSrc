@@ -26,7 +26,11 @@ jobs:
         run: echo "BRANCH=$(echo ${{ steps.today.outputs.TODAY }} | tr -d '[:space:]' | tr -d ':')" >> $GITHUB_OUTPUT
 
       - name: Download and commit simplifier source code
-        run: wget https://simplifier.net/ukdigitalmedicine/download
+        run: |
+          wget https://simplifier.net/ukdigitalmedicine/download -o backup/download.zip
+          cd backup
+          unzip -u -o download.zip
+          rm download.zip
 
       - name: Commit report
         run: |
