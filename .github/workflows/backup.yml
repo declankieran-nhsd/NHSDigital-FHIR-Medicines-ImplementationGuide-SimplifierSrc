@@ -13,8 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          github_token: ${{ secrets.SIMPLIFIERSRCREPO }}
-
+          token: ${{ secrets.SIMPLIFIERSRCREPO }}
       - name: Download and commit simplifier source code
         run: |
           wget https://simplifier.net/ukdigitalmedicine/download; \
