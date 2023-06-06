@@ -32,9 +32,9 @@ jobs:
         run: |
           cd backup
           rm -r *
-          wget https://simplifier.net/ukdigitalmedicine/download -O download.zip
-          unzip -u -o download.zip
-          rm download.zip
+          wget https://simplifier.net/ukdigitalmedicine/download -O export.zip
+          unzip -u -o export.zip
+          mv export.zip ..
           cd ..
 
       - name: Commit report
