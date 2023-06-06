@@ -37,7 +37,7 @@ jobs:
           mv export.zip ..
           cd ..
 
-      - name: Commit report
+      - name: Create branch and commit
         run: |
           git config --global user.name '{{ vars.COMITTER_NAME }}'
           git config --global user.email '${{ secrets.COMITTER }}'
@@ -50,6 +50,7 @@ jobs:
         uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.TOKEN }}
+          delete-branch: true
           script: |
             const { repo, owner } = context.repo;
             const result = await github.rest.pulls.create({
@@ -83,5 +84,4 @@ jobs:
               const pull_number = data[0].number;
               await github.rest.pulls.merge({ owner, repo, pull_number, merge_method: "squash"});
             }
-            await git.exec(['branch', '--delete', '--force', head])
 
