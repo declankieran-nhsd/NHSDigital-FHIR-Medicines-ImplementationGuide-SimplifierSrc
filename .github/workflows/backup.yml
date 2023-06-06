@@ -83,5 +83,5 @@ jobs:
               const pull_number = data[0].number;
               await github.rest.pulls.merge({ owner, repo, pull_number, merge_method: "squash"});
             }
-            await git.exec(['branch', '--delete', '--force', head])
+            await git.exec(['branch', '--delete', '--force', head]);
 
