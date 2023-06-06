@@ -40,7 +40,7 @@ jobs:
       - name: Commit report
         run: |
           git config --global user.name 'Declan Kieran'
-          git config --global user.email 'declan.kieran1@nhs.net'
+          git config --global user.email {{ secrets.COMITTER }} 
           git checkout -b ${{ steps.branch-name.outputs.BRANCH }}
           git add -A
           git commit -m "${{ steps.today.outputs.TODAY }}"
