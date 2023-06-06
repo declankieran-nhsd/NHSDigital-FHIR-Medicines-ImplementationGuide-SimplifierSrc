@@ -32,7 +32,7 @@ jobs:
         run: |
           cd backup
           rm -r *
-          wget {{ vars.SIMPLIFIER_ADDRESS }} -O export.zip
+          wget ${{ vars.SIMPLIFIER_ADDRESS }} -O export.zip
           unzip -u -o export.zip
           mv export.zip ..
           cd ..
