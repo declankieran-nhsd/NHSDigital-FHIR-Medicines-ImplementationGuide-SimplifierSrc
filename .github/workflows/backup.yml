@@ -31,7 +31,7 @@ jobs:
       - name: Download and commit simplifier source code
         run: |
           cd backup
-          rm -r *
+          git rm -r *
           wget ${{ vars.SIMPLIFIER_ADDRESS }} -O export.zip
           unzip -u -o export.zip
           mv export.zip ..
