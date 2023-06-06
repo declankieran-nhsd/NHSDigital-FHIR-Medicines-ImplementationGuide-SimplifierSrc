@@ -52,7 +52,8 @@ jobs:
         with:
           token: ${{ secrets.TOKEN }}
           commit-message: '${{ steps.today.outputs.TODAY }}'
-          branch: main
+          branch: "${{ steps.today.outputs.BRANCH }}"
+          destination_branch: main
           delete-branch: true
           title: '${{ steps.today.outputs.TODAY }}'
           body: |
