@@ -67,7 +67,7 @@ jobs:
               owner,
               repo,
               issue_number: result.data.number,
-              labels: ['feature', 'automated pr']
+              labels: ['backup', 'automated pr']
             });
 
       - name: "Merge pull request"
