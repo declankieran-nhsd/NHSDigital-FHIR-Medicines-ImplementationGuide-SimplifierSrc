@@ -84,9 +84,3 @@ jobs:
               await github.rest.pulls.merge({ owner, repo, pull_number, merge_method: "squash"});
             }
 
-      - name: Delete branch
-        uses: dawidd6/action-delete-branch@v3
-        with:
-          github_token: ${{github.TOKEN}}
-          branches: '${{ steps.branch-name.outputs.BRANCH }}'
-          suffix: -done
