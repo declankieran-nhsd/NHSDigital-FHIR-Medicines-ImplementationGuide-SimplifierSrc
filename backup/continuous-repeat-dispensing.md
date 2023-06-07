@@ -4,11 +4,6 @@
 </a>
 
 
-#### New section
-
-This is a change
-
-
 {{render:prescribing-continuous-repeat-dispensing}}
 
 One of the key aspects of repeat dispensing is that the EPS manages the re-issue of subsequent authorised issues of the repeat dispensing prescription. 
